@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cervical Cancer Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+        }
+        .container-heading {
+            font-family: 'Pacifico', cursive;
+            color: #333;
+        }
+        .description {
+            margin-bottom: 20px;
+        }
+        .results-container {
+            width: 80%;
+            margin: auto;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .results h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .danger {
+            color: red;
+        }
+        .safe {
+            color: green;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Result -->
+    <div class="results-container">
+        {% if prediction == 1 %}
+            <h1>Prediction: <span class="danger">You have chances of getting Cervical Cancer.</span></h1>
+        {% elif prediction == 0 %}
+            <h1>Prediction: <span class="safe">You don't have chances of getting Cervical Cancer.</span></h1>
+        {% endif %}
+        <a href="{{ url_for('index') }}">Go back to Home Page</a>
+    </div>
+
+</body>
+</html>

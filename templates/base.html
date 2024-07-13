@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WellPred</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('cerv_canc') }}">Cervical Cancer Predictor</a></li>
+            <li><a href="{{ url_for('heart_disease') }}">Heart Disease Predictor</a></li>
+            <li><a href="{{ url_for('kidney_disease') }}">Kidney Disease Predictor</a></li>
+        </ul>
+    </nav>
+    {% block content %}{% endblock %}
+</body>
+</html>
