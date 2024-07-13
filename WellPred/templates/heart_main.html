@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Disease Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            grid-column: span 3;
+            text-align: center;
+        }
+        .submit-button input {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button input:hover {
+            background-color: darkgreen;
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+            text-align: center
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Disease Prediction</h1>
+    <form action="{{ url_for('predict_heart') }}" method="POST">
+        <div>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter age..." required>
+        </div>
+        <div>
+            <label for="sex">Sex (0 = female, 1 = male):</label>
+            <input type="number" id="sex" name="sex" placeholder="Enter sex..." required>
+        </div>
+        <div>
+            <label for="cp">Chest Pain Type (0, 1, 2, 3):</label>
+            <input type="number" id="cp" name="cp" placeholder="Enter chest pain type..." required>
+        </div>
+        <div>
+            <label for="trestbps">Resting Blood Pressure:</label>
+            <input type="number" id="trestbps" name="trestbps" placeholder="Enter resting blood pressure..." required>
+        </div>
+        <div>
+            <label for="chol">Serum Cholesterol (mg/dl):</label>
+            <input type="number" id="chol" name="chol" placeholder="Enter serum cholesterol..." required>
+        </div>
+        <div>
+            <label for="fbs">Fasting Blood Sugar (1 = true; 0 = false):</label>
+            <input type="number" id="fbs" name="fbs" placeholder="Enter fasting blood sugar..." required>
+        </div>
+        <div>
+            <label for="restecg">Resting Electrocardiographic Results (0, 1, 2):</label>
+            <input type="number" id="restecg" name="restecg" placeholder="Enter resting electrocardiographic results..." required>
+        </div>
+        <div>
+            <label for="thalach">Maximum Heart Rate Achieved:</label>
+            <input type="number" id="thalach" name="thalach" placeholder="Enter maximum heart rate achieved..." required>
+        </div>
+        <div>
+            <label for="exang">Exercise Induced Angina (1 = yes; 0 = no):</label>
+            <input type="number" id="exang" name="exang" placeholder="Enter exercise induced angina..." required>
+        </div>
+        <div>
+            <label for="oldpeak">ST Depression Induced by Exercise:</label>
+            <input type="number" step="0.1" id="oldpeak" name="oldpeak" placeholder="Enter ST depression induced by exercise..." required>
+        </div>
+        <div>
+            <label for="slope">Slope of the Peak Exercise ST Segment (0, 1, 2):</label>
+            <input type="number" id="slope" name="slope" placeholder="Enter slope of the peak exercise ST segment..." required>
+        </div>
+        <div>
+            <label for="ca">Number of Major Vessels (0-3) Colored by Fluoroscopy:</label>
+            <input type="number" id="ca" name="ca" placeholder="Enter number of major vessels..." required>
+        </div>
+        <div>
+            <label for="thal">Thalassemia (1 = normal; 2 = fixed defect; 3 = reversable defect):</label>
+            <input type="number" id="thal" name="thal" placeholder="Enter thalassemia..." required>
+        </div>
+        <div class="submit-button">
+            <input type="submit" value="Predict">
+        </div>
+    </form>
+</body>
+</html>

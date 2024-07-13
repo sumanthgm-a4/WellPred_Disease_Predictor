@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .result-container {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .result.success {
+            color: green;
+            border-color: green;
+        }
+        .result.failure {
+            color: red;
+            border-color: red;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Prediction Result</h1>
+        {% if prediction == 1 %}
+            <p class="result failure">You have chances of getting Heart Disease</p>
+        {% elif prediction == 0 %}
+            <p class="result success">You don't have chances of getting Heart Disease</p>
+        {% else %}
+            <p class="result">Prediction result: <strong>{{ prediction }}</strong></p>
+        {% endif %}
+        <a href="{{ url_for('index') }}" class="back-link">Go back to Home Page</a>
+    </div>
+</body>
+</html>

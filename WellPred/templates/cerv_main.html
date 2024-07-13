@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cervical Cancer Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .submit-button {
+            grid-column: span 3;
+            text-align: center;
+        }
+        .submit-button input {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit-button input:hover {
+            background-color: darkgreen;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cervical Cancer Prediction</h1>
+    <form action="{{ url_for('predict_cerv') }}" method="POST" id="cancerForm">
+        <div>
+            <label for="textbox1">Age:</label>
+            <input type="text" id="textbox1" name="textbox1" placeholder="Age">
+        </div>
+        <div>
+            <label for="textbox2">Number of sexual partners:</label>
+            <input type="text" id="textbox2" name="textbox2" placeholder="Number of sexual partners">
+        </div>
+        <div>
+            <label for="textbox3">First sexual intercourse:</label>
+            <input type="text" id="textbox3" name="textbox3" placeholder="First sexual intercourse">
+        </div>
+        <div>
+            <label for="textbox4">Number of pregnancies:</label>
+            <input type="text" id="textbox4" name="textbox4" placeholder="Number of pregnancies">
+        </div>
+        <div>
+            <label for="textbox5">Smokes (1 or 0):</label>
+            <input type="text" id="textbox5" name="textbox5" placeholder="Smokes (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox6">Smokes (years):</label>
+            <input type="text" id="textbox6" name="textbox6" placeholder="Smokes (years)">
+        </div>
+        <div>
+            <label for="textbox7">Smokes (packs/year):</label>
+            <input type="text" id="textbox7" name="textbox7" placeholder="Smokes (packs/year)">
+        </div>
+        <div>
+            <label for="textbox8">Hormonal Contraceptives (1 or 0):</label>
+            <input type="text" id="textbox8" name="textbox8" placeholder="Hormonal Contraceptives (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox9">Hormonal Contraceptives (years):</label>
+            <input type="text" id="textbox9" name="textbox9" placeholder="Hormonal Contraceptives (years)">
+        </div>
+        <div>
+            <label for="textbox10">IUD (1 or 0):</label>
+            <input type="text" id="textbox10" name="textbox10" placeholder="IUD (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox11">IUD (years):</label>
+            <input type="text" id="textbox11" name="textbox11" placeholder="IUD (years)">
+        </div>
+        <div>
+            <label for="textbox12">STDs (1 or 0):</label>
+            <input type="text" id="textbox12" name="textbox12" placeholder="STDs (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox13">STDs (number):</label>
+            <input type="text" id="textbox13" name="textbox13" placeholder="STDs (number)">
+        </div>
+        <div>
+            <label for="textbox14">STDs: condylomatosis (1 or 0):</label>
+            <input type="text" id="textbox14" name="textbox14" placeholder="STDs: condylomatosis (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox15">STDs: cervical condylomatosis (1 or 0):</label>
+            <input type="text" id="textbox15" name="textbox15" placeholder="STDs: cervical condylomatosis (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox16">STDs: vaginal condylomatosis (1 or 0):</label>
+            <input type="text" id="textbox16" name="textbox16" placeholder="STDs: vaginal condylomatosis (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox17">STDs: vulvo-perineal condylomatosis (1 or 0):</label>
+            <input type="text" id="textbox17" name="textbox17" placeholder="STDs: vulvo-perineal condylomatosis (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox18">STDs: syphilis (1 or 0):</label>
+            <input type="text" id="textbox18" name="textbox18" placeholder="STDs: syphilis (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox19">STDs: pelvic inflammatory disease (1 or 0):</label>
+            <input type="text" id="textbox19" name="textbox19" placeholder="STDs: pelvic inflammatory disease (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox20">STDs: genital herpes (1 or 0):</label>
+            <input type="text" id="textbox20" name="textbox20" placeholder="STDs: genital herpes (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox21">STDs: molluscum contagiosum (1 or 0):</label>
+            <input type="text" id="textbox21" name="textbox21" placeholder="STDs: molluscum contagiosum (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox22">STDs: AIDS (1 or 0):</label>
+            <input type="text" id="textbox22" name="textbox22" placeholder="STDs: AIDS (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox23">STDs: HIV (1 or 0):</label>
+            <input type="text" id="textbox23" name="textbox23" placeholder="STDs: HIV (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox24">STDs: Hepatitis B (1 or 0):</label>
+            <input type="text" id="textbox24" name="textbox24" placeholder="STDs: Hepatitis B (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox25">STDs: HPV (1 or 0):</label>
+            <input type="text" id="textbox25" name="textbox25" placeholder="STDs: HPV (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox26">STDs: Number of diagnosis:</label>
+            <input type="text" id="textbox26" name="textbox26" placeholder="STDs: Number of diagnosis">
+        </div>
+        <div>
+            <label for="textbox27">Dx: Cancer (1 or 0):</label>
+            <input type="text" id="textbox27" name="textbox27" placeholder="Dx: Cancer (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox28">Dx: CIN (1 or 0):</label>
+            <input type="text" id="textbox28" name="textbox28" placeholder="Dx: CIN (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox29">Dx: HPV (1 or 0):</label>
+            <input type="text" id="textbox29" name="textbox29" placeholder="Dx: HPV (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox30">Dx (1 or 0):</label>
+            <input type="text" id="textbox30" name="textbox30" placeholder="Dx (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox31">Hinselmann (1 or 0):</label>
+            <input type="text" id="textbox31" name="textbox31" placeholder="Hinselmann (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox32">Schiller (1 or 0):</label>
+            <input type="text" id="textbox32" name="textbox32" placeholder="Schiller (1 or 0)">
+        </div>
+        <div>
+            <label for="textbox33">Citology (1 or 0):</label>
+            <input type="text" id="textbox33" name="textbox33" placeholder="Citology (1 or 0)">
+        </div>
+        <div class="submit-button">
+            <input type="submit" value="Predict">
+        </div>
+    </form>
+
+    <script>
+        document.getElementById("cancerForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            var smokeValue = document.getElementById("textbox5").value;
+            if (smokeValue == "0") {
+                document.getElementById("textbox6").value = "0";
+                document.getElementById("textbox7").value = "0";
+            }
+            var hormonalContraceptivesValue = document.getElementById("textbox8").value;
+            if (hormonalContraceptivesValue == "0") {
+                document.getElementById("textbox9").value = "0";
+            }
+            var iudValue = document.getElementById("textbox10").value;
+            if (iudValue == "0") {
+                document.getElementById("textbox11").value = "0";
+            }
+            var stdsValue = document.getElementById("textbox12").value;
+            if (stdsValue == "0") {
+                for (var i = 13; i <= 26; i++) {
+                    document.getElementById("textbox" + i).value = "0";
+                }
+            }
+            // Now, you can submit the form
+            document.getElementById("cancerForm").submit();
+        });
+    </script>
+</body>
+</html>

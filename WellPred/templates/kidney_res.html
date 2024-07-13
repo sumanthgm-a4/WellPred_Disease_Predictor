@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .result-container {
+            max-width: 600px;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .result-container h2 {
+            margin-bottom: 20px;
+            font-family: Arial, sans-serif;
+        }
+        .result-container p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .danger {
+            color: red;
+        }
+        .safe {
+            color: green;
+        }
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h2>Kidney Disease Prediction Result</h2>
+        {% if prediction == 1 %}
+            <p><strong>Prediction:</strong> <span class="danger">You have chances of getting Kidney Disease</span></p>
+        {% elif prediction == 0 %}
+            <p><strong>Prediction:</strong> <span class="safe">You don't have chances of getting Kidney Disease</span></p>
+        {% endif %}
+        <a href="/">Go Back to Home Page</a>
+    </div>
+</body>
+</html>
