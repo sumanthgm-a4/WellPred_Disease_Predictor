@@ -103,7 +103,7 @@ WellPred/
 - [S. Sarfaraaz](https://www.github.com/sarfaraaz97)
 - [A. Pavan Kumar](https://www.github.com/pavan07071)
 - [C. Pavan Sai](https://www.github.com/)
-- [G. M. Sumanth](https://www.github.com/gmsumanth-a4)
+- [G. M. Sumanth](https://www.github.com/sumanthgm-a4)
 
 
 ## License
