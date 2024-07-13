@@ -26,7 +26,7 @@ WellPred is a web application built with Flask for predicting health conditions 
 Following is the project's directory structure:
 
 ```bash
-  WellPred/
+WellPred/
 │
 ├── apps/
 │   ├── cerv_app.py           # Flask application for cervical cancer prediction
