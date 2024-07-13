@@ -1,4 +1,3 @@
-
 # WellPred Disease Predictor
 
 WellPred is a web application built with Flask for predicting health conditions including cervical cancer, heart disease, and kidney disease.
