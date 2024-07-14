@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-heart_scaler, heart_model = joblib.load("/models/heart_model.pkl")
+heart_scaler, heart_model = joblib.load("/WellPred_Disease_Predictor/models/heart_model.pkl")
 
 @app.route('/heart')
 def heart():
@@ -39,7 +39,7 @@ def predict_heart():
         
 
 
-cerv_data, cerv_scaler, cerv_model, X, y = joblib.load("/models/cerv_canc_models.pkl")
+cerv_data, cerv_scaler, cerv_model, X, y = joblib.load("/WellPred_Disease_Predictor/models/cerv_canc_models.pkl")
 
 @app.route('/cervical')
 def cervical():
@@ -88,7 +88,7 @@ def predict_cerv():
 
 
 
-kidney_data, kidney_scaler, kidney_model = joblib.load('/models/kidney_models.pkl')
+kidney_data, kidney_scaler, kidney_model = joblib.load('/WellPred_Disease_Predictor/models/kidney_models.pkl')
 
 @app.route('/kidney')
 def kidney():
