@@ -109,4 +109,5 @@ WellPred_Disease_Predictor
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/sumanthgm-a4/WellPred_Disease_Predictor/blob/main/LICENSE) file for details.
 
-## DISCLAIMER ### The predictions made by these models are accurate, though relying on them ENTIRELY is not advised.
+## DISCLAIMER 
+### The predictions made by these models are accurate, though relying on them ENTIRELY is not advised.
