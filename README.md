@@ -60,7 +60,7 @@ WellPred_Disease_Predictor
 │
 ├── __pycache__/              # Python bytecode cache (automatically generated)
 │
-├── main_app.py               # Main Flask application file
+├── app.py               # Main Flask application file
 │
 └── README.md                 # This README file
 
