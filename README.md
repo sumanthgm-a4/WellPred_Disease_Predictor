@@ -89,7 +89,7 @@ WellPred_Disease_Predictor
 ### 1. Run the Application:
 - Start the Flask app:
 ```bash
-  python main_app.py
+  python app.py
 ```
 - Access the application in your web browser at http://localhost:5000 .
 
@@ -109,3 +109,4 @@ WellPred_Disease_Predictor
 
 This project is licensed under the MIT License. See the [LICENSE](https://github.com/sumanthgm-a4/WellPred_Disease_Predictor/blob/main/LICENSE) file for details.
 
+## DISCLAIMER ### The predictions made by these models are accurate, though relying on them ENTIRELY is not advised.
